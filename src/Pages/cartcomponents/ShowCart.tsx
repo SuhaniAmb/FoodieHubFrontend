@@ -4,6 +4,7 @@ import { serverURL } from "../../Components/Services/Fetchnodeservices"
 import plus from "../../assets/plus.png"
 import minus from "../../assets/minus.png"
 import { useDispatch } from "react-redux"
+import { useLocation } from "react-router-dom"
 
 
 
@@ -31,42 +32,35 @@ export default function ShowCart({data, refresh, setRefresh}:ItemsProps) {
 
 
     const navigate=useNavigate()
-
-
-
-
+    const location=useLocation()
     const dispatch=useDispatch()
 
 
-
-    const handleMinus=(item:Items)=>{
-    
-    const q = item.qty-1
-    if(q<=0)
-    {
-      dispatch({type:"DELETE_CART",payload:[item.fooditemid,data]})
-    }
-    else
-    {
-     item.qty=q
-      if(q>1)
-      dispatch({type:"ADD_CART",payload:[item.fooditemid,data]})
-
-    }
-      setRefresh(!refresh)
-
-    }
-
-
-      
-const handleAddClick=(item:Items)=>{
-    
-    const q = item.qty+1
-     item.qty=q
-    dispatch({type:"ADD_CART",payload:[item.fooditemid,data]})
-      setRefresh(!refresh)
-
+const handleMinus = (item: Items) => {
+  const q = item.qty - 1
+  if (q <= 0) 
+  {
+    dispatch({type: "DELETE_CART", payload: [item.fooditemid]})
   }
+  else 
+  {
+    const newItem = {...item, qty: q}
+    dispatch({type: "ADD_CART", payload: [item.fooditemid, newItem]})
+  }
+  setRefresh(!refresh)
+}
+
+ 
+ 
+const handleAddClick = (item: Items) => {
+  const q = item.qty + 1
+  const newItem = {...item, qty: q}
+  dispatch({
+    type: "ADD_CART",
+    payload: [item.fooditemid, newItem]
+  })
+  setRefresh(!refresh)
+}
 
 
 const totalAmount = data.reduce((sum, item) => {
@@ -122,7 +116,7 @@ const amt=(item.offerprice>0?item.offerprice:item.fullprice)*item.qty
             {item.offerprice ==0?<><div  className=" text-black text-[15px] font-bold mt-1 " >₹{item.fullprice.toFixed(2)}/unit</div></>:<><div className=" text-black text-[15px] font-bold mt-1 "  >₹{item.offerprice.toFixed(2)}/Unit</div><s  className=" text-gray-600 text-[15px] mt-1 "  >₹{item.fullprice}/Unit</s></>} 
             <div className=" text-black text-[15px] font-bold mt-1 ml-auto " >₹{amt.toFixed(2)}</div>
           </div>
-          {item.offerprice>1?<> <div className=" mt-1 px-1 w-fit rounded-sm text-[12px] font-[600] bg-[#dbf7e8] text-green-700 " >You Save ₹{discount}</div></>:<></>}
+          {item.offerprice>1?<> <div className=" mt-1 px-1 w-fit rounded-sm text-[12px] font-[600] bg-[#dbf7e8] text-green-700 " >You Save ₹{discount.toFixed(2)}</div></>:<></>}
          <div className=" flex items-center mt-1 " >
             <div className=" text-gray-600 text-[12px] " >Sold by</div>
             <div  className=" text-gray-800 font-bold text-[11px] "  >:</div>
@@ -132,13 +126,14 @@ const amt=(item.offerprice>0?item.offerprice:item.fullprice)*item.qty
             <div className=" text-gray-600 text-[12px] flex items-start " >Qty</div>
             <div  className=" text-gray-800 font-bold text-[11px] "  >:</div>
             <div className=" text-black ml-1 text-[12px] " >{item.qty}</div>
+            {location.pathname==='/cart'?<>
                 <div className=" flex ml-auto " >
                 <div className=" border border-gray-300 flex justify-center items-center px-2 py-2  rounded-full mt-1 hover:bg-green-100 hover:border-green-500 cursor-pointer  transition-transform active:scale-95" onClick={()=>handleMinus(item)} ><img src={minus} width={15}  /></div>
-                <div className=" sm:mx-2 mx-1 mt-2 text-black text-[20px] " >{item?.qty}</div>
-                <div className=" border border-gray-300 flex justify-center items-center px-2 py-2 rounded-full mt-1 cursor-pointer hover:bg-green-100 hover:border-green-500 " onClick={()=>handleAddClick(item)} ><img src={plus} width={15} /></div>                
-
-               </div>
-
+                <div className=" sm:mx-2 mx-1 mt-2 text-black text-[20px] " >{item.qty}</div>
+                <div className=" border border-gray-300 flex justify-center items-center px-2 py-2 rounded-full mt-1 cursor-pointer hover:bg-green-100 hover:border-green-500  " onClick={()=>handleAddClick(item)} ><img src={plus} width={15} /></div>                
+               </div></>:<></>
+            }
+            
           </div>
         </div>
         </div>

@@ -4,6 +4,13 @@ import Swal from "sweetalert2";
 const serverURL='http://localhost:5000'
 
 
+
+function generateOtp(){
+    const otp=Math.floor(Math.random()*899999)+100000
+    return otp
+}
+
+
 function getDate()
 {
     const cd=new Date()
@@ -88,4 +95,4 @@ async function getData(url:string)
         return([])
     }
 }
-export {postData,serverURL,getDate,getTime,getData}
+export {postData,serverURL,getDate,getTime,getData, generateOtp}

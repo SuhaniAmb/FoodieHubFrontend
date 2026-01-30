@@ -12,6 +12,7 @@ import Footer from "../Footer"
 
 
 
+
 type FoodItem = {
   fooditemid:number
   picture: string

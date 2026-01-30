@@ -35,14 +35,14 @@ export default function Header()
                             <div className=" text-white " >{totalItems?.length}</div>
                         </div>
                     </> }
-                    <div  onClick={()=>navigate(`/cart`)} className=" obsolute cursor-pointer flex bg-[rgba(0,0,0,0.4)] rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 justify-center " >
+                    <div  onClick={()=>navigate('/cart')} className=" obsolute cursor-pointer flex bg-[rgba(0,0,0,0.4)] rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 justify-center " >
                         <img src={shopping} width={30} height={20} />
                         </div>
                     <div className=" cursor-pointer flex m-3 bg-[rgba(0,0,0,0.4)] rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 justify-center relative " >
                         <img src={wallet} width={25} height={25} />
                         <div className="absolute sm:top-9 top-7 sm:h-4 h-3 sm:w-12 w-9 text-white sm:text-[11px] text-[9px] flex justify-center items-center bg-[#2d3436] rounded-lg font-bold " >&#8377;20</div>
                     </div>
-                    <div className="cursor-pointer flex bg-[rgba(0,0,0,0.4)] rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 justify-center " >
+                    <div onClick={()=>navigate('/sign_in')} className="cursor-pointer flex bg-[rgba(0,0,0,0.4)] rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 justify-center " >
                         <img src={user} width={30} height={20} />
                     </div>
                 </div>

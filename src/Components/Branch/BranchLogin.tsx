@@ -28,7 +28,7 @@ export default function BranchLogin() {
     }
   };
   return (
-    <div className="w-screen flex justify-center items-start">
+    <div className="w-screen flex justify-center items-center h-screen">
       <div className="w-[400px] h-auto border border-[hsla(321,41%,24%,1)] rounded-[5px] flex flex-col ">
         <div className="w-[400px] rounded-t-[5px]" style={{background:'linear-gradient(90deg, hsla(321, 41%, 24%, 1)0%, hsla(330, 53%, 77%, 1)100%)'}} >
           <div className="flex font-quicksand flex-col w-[30%] p-2.5" >

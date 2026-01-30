@@ -31,6 +31,11 @@ import { useState } from 'react';
 import Homepage from './Pages/homepage/Homepage';
 import ProductDetailComponent from './Pages/productdetailcomponent/ProductDetailComponent';
 import Carts from './Pages/carts/Cart';
+import { useEffect } from 'react';
+import OrderReview from './Pages/carts/OrderReview';
+import MakePayment from './Pages/carts/MakePayment';
+import SignIn from './Pages/signin/SignIn';
+import Otp from './Pages/otp/Otp';
 /***************************** IMPORT UI'S **************************************/
 
 
@@ -38,8 +43,17 @@ import Carts from './Pages/carts/Cart';
 function App() {
 
       const [refresh,setRefresh]=useState(false)
+
+  /////////////// ScrollToTop ke liye
+
+  useEffect(() => { window.history.scrollRestoration = "manual";}, []);
+
+
+  ///////////////////////////// 
+
   
   return (
+    <>
     <div>
     <Routes>  
       <Route path="categoryinterface" element={<CategoryInterface refresh={refresh} setRefresh={setRefresh} />} />
@@ -76,6 +90,13 @@ function App() {
       <Route path='homepage' element={<Homepage />} />
       <Route path='productdetailcomponent/:id' element={<ProductDetailComponent />} />
       <Route path='cart' element={<Carts />} />
+      <Route path='order_review' element={<OrderReview />} />
+      <Route path='order_review' element={<OrderReview />} />
+      <Route path='make_payment' element={<MakePayment />} />
+      <Route path='sign_in' element={<SignIn />} />
+      <Route path='otp_page' element={<Otp />} />
+
+
 
     
 
@@ -87,6 +108,8 @@ function App() {
     </Routes>
    
     </div>
+    </>
+
   );
 }
 
