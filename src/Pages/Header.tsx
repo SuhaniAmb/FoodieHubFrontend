@@ -1,10 +1,17 @@
 import wallet from "../assets/rupeeswallet.png"
-import user from "../assets/user.png"
+import userImg from "../assets/user.png"
 import shopping from "../assets/shopping.png"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import type { RootState } from "../Components/Storage/RootReducer"
 
+
+
+interface Student {
+  studentname: string
+  mobileno: number
+  [key: string]: unknown
+}
 
 export default function Header()
 {
@@ -15,6 +22,19 @@ export default function Header()
     const cart=useSelector((state:RootState)=>state.cart)
     const totalItems=Object.keys(cart)
 
+//    const user=useSelector((state:RootState)=>state.user)
+  const users = localStorage.getItem("USER")
+
+let userData: Student | "Not Login" = "Not Login"
+
+if (users) {
+  const parsedUser = JSON.parse(users)
+  const firstUser = Object.values(parsedUser)[0] as Student
+
+  if (firstUser?.studentname) {
+    userData = firstUser
+  }
+}
 
 
     return(
@@ -42,9 +62,13 @@ export default function Header()
                         <img src={wallet} width={25} height={25} />
                         <div className="absolute sm:top-9 top-7 sm:h-4 h-3 sm:w-12 w-9 text-white sm:text-[11px] text-[9px] flex justify-center items-center bg-[#2d3436] rounded-lg font-bold " >&#8377;20</div>
                     </div>
-                    <div onClick={()=>navigate('/sign_in')} className="cursor-pointer flex bg-[rgba(0,0,0,0.4)] rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 justify-center " >
-                        <img src={user} width={30} height={20} />
+                    {userData=="Not Login"?<>
+                    <div onClick={()=>navigate('/sign_in?from=HP')} className="cursor-pointer flex bg-[rgba(0,0,0,0.4)] rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 justify-center " >
+                        <img src={userImg} width={30} height={20} />
                     </div>
+                    </>:<>
+                    <div className="cursor-pointer flex justify-center items-center bg-orange-500 rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 text-[25px] text-white " >{userData?.studentname.charAt(0).toUpperCase()}</div>
+                    </>}
                 </div>
             </div>
         </div>

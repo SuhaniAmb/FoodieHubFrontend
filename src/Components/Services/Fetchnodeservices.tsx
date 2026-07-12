@@ -36,7 +36,7 @@ async function postData(url:string,body:unknown)
         {
             headers:
             {
-                'Authorization':localStorage.getItem('Token')
+                'Authorization': `Bearer ${localStorage.getItem('Token')}`
             }
         }
         const response=await axios.post(`${serverURL}/${url}`,body,config)
@@ -68,12 +68,13 @@ async function getData(url:string)
 {
     try
     {
-        //alert (localStorage.getItem('Token'))
+        // alert (localStorage.getItem('Token'))
+        const token = localStorage.getItem('Token');
 
         const config={
             headers:{
                 'Content-Type':'application/json',
-                'Authorization':localStorage.getItem('Token')
+                'Authorization': token ? `Bearer ${token}` : ""
             }
         }
         const response=await axios.get(`${serverURL}/${url}`,config)

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import plus from "../../assets/plus.png"
 import minus from "../../assets/minus.png"
 import { useDispatch } from "react-redux"
-
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -30,6 +30,8 @@ type FoodProps={
 
 export default function AddToCartComponent({data, refresh,setRefresh}:FoodProps) 
 {
+
+  const navigate=useNavigate()
 
     const [selected, setSelected]=useState("left")
     const [quantity, setQuantity]=useState(data.qty || 0)
@@ -104,7 +106,7 @@ const handleAddClick=()=>{
             </div>
            )}
         </div>
-        <div className=" bg-green-600 flex justify-center rounded-full md:mt-8 mt-5 text-white sm:py-3 py-2 md:text-[20px] text-[17px] font-bold  xl:mx-10 mx-1 cursor-pointer " >Buy it now</div>
+        <div className=" bg-green-600 flex justify-center rounded-full md:mt-8 mt-5 text-white sm:py-3 py-2 md:text-[20px] text-[17px] font-bold  xl:mx-10 mx-1 cursor-pointer " onClick={()=>navigate('/cart')} >Buy it now</div>
     </div>
 
   )

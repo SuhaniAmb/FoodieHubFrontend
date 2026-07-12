@@ -24,6 +24,16 @@ type Items = {
 }
 
 
+interface Address {
+  studentname: string
+  current_address:string
+  current_city:string
+  current_state:string
+  current_pincode:string
+  mobileno: string
+  [key: string]: unknown
+}
+
 
 
 
@@ -34,6 +44,16 @@ export default function MakePayment() {
   const cart=useSelector((state:RootState)=>state.cart)
   const products=Object.values(cart) as Items[]
   const [refresh,setRefresh]=useState(false)
+
+  
+const userS=localStorage.getItem('USER')
+console.log(userS)
+  const user = userS ? JSON.parse(userS) : null
+  
+  let userData:Address | null=null
+  if (user !== null) {
+  userData = Object.values(user)[0] as Address
+}
 
 
 
@@ -55,7 +75,7 @@ export default function MakePayment() {
       <div className="sm:grid grid-cols-2 gap-1 ">
         <div className="xl:pl-14 lg:pl-10 md:pl-3 pl-1 ">
           <div className=" text-black text-2xl font-bold">Order Review</div>
-          <div><AddressComponent/></div>
+          {userData && <div><AddressComponent address={userData} /></div>}          
           <div>
             <ShowCart data={products} refresh={refresh} setRefresh={setRefresh} />
           </div>
@@ -63,7 +83,7 @@ export default function MakePayment() {
         <div className=" lg:mt-14 md:mt-8 ">
           <div><CounterComponent/></div>
           <div><ProductDetailComponent data={products} /></div>
-          <div><CouponComponent/></div>
+          <div><CouponComponent data={products}/></div>
         </div>
       </div>
     </div>

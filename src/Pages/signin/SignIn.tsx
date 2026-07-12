@@ -2,7 +2,7 @@ import { useState } from "react"
 import { postData } from "../../Components/Services/Fetchnodeservices"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-
+import { useSearchParams } from "react-router-dom"
 
 
 export default function SignIn() {
@@ -12,6 +12,9 @@ export default function SignIn() {
   const [message,setMessage]=useState('')
   const navigate=useNavigate()
   const dispatch=useDispatch()
+  const [param]=useSearchParams()
+  // alert(param.get('from'))
+  const from=param.get('from')
 
   const handleClick=async()=>{
     const response=await postData("users/student_sign_in",{mobileno})
@@ -20,7 +23,7 @@ export default function SignIn() {
       const mn=response?.data?.mobileno
       dispatch({type:'ADD_USER', payload:[String(mn),response?.data]})
       setMessage('')
-      navigate("/otp_page")
+      navigate(`/otp_page?from=${from}`)
     }
     else
     {

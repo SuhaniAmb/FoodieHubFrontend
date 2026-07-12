@@ -44,7 +44,7 @@ export default function CounterComponent() {
       </div>
 
       </>)}
-                                {/* PAYMENT LAST          
+                                {/* PAYMENT LAST           */}
       {location.pathname==="/make_payment" &&(<>
       <div className=' flex lg:px-3 justify-center md:gap-2 gap-1 ' >
         <div className=' border border-gray-400 py-1 px-1 bg-green-500 text-gray-400 text-[17px] font-bold rounded-full  ' ><img src={check} width={100} className="w-6" /></div>
@@ -58,7 +58,7 @@ export default function CounterComponent() {
         <div className=' text-gray-600 lg:text-[14px] text-[13px]  whitespace-nowrap' >Order Review</div>
         <div className=' text-black lg:text-[14px] text-[13px]  whitespace-nowrap font-bold' >Payment</div>
       </div>
-</>)} */}
+</>)}
 
 
     </div>

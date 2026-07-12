@@ -60,7 +60,7 @@ export default function Carts() {
         <div className=" lg:mt-14 md:mt-8 ">
           <div><CounterComponent/></div>
           <div><ProductDetailComponent data={products} /></div>
-          <div><CouponComponent/></div>
+          <div><CouponComponent data={products}/></div>
         </div>
       </div>
     </div>

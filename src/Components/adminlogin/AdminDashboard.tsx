@@ -35,7 +35,7 @@ export default function AdminDashboard() {
                 <div className="w-full ml-5 text-[20px] text-black " >Dashboard</div>
             </div>
 
-
+<hr className=" mx-2 border-gray-400 " />
             <div className="w-full h-[10%] flex flex-row items-center hover:bg-pink-200 cursor-pointer " >
                 <img src={branch} className="w-7 ml-5" />
                 <div className="w-full ml-5 text-[17px] text-black " onClick={()=>setActiveMenu("Branch")} >Branch</div>

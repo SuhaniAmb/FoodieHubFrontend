@@ -25,7 +25,7 @@ export default function RootReducer(state=initialState, action:Action)
             if (!action.payload) return state;  
             state.cart[action.payload[0]]=action.payload[1]
             console.log("CARTTTTTTTTTTTTTTTTT",state.cart)
-            return {cart:state.cart, user:state.cart}
+            return {cart:state.cart, user:state.user}
            
         case "ADD_USER":
             if (!action.payload) return state;  
@@ -37,7 +37,13 @@ export default function RootReducer(state=initialState, action:Action)
             if (!action.payload) return state;  
             delete state.cart[action.payload[0]]
             console.log("CARTTTTTTTTTTTTTTTTT",state.cart)
-            return {cart:state.cart, user:state.cart}
+            return {cart:state.cart, user:state.user}
+
+        case 'EMPTY_CART':
+            // if (!action.payload) return state;  
+            state.cart={}
+            console.log("CARTTTTTTTTTTTTTTTTT",state.cart)
+            return {cart:state.cart, user:state.user}
 
 
         default:

@@ -2,6 +2,9 @@ import { useState, useRef, useEffect } from "react"
 import { useSelector } from "react-redux";
 import type { RootState } from "../../Components/Storage/RootReducer";
 import { generateOtp } from "../../Components/Services/Fetchnodeservices";
+import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 
 export default function Otp() {
@@ -10,6 +13,9 @@ export default function Otp() {
     const [gOtp, setGotp]=useState('')
     const [otp, setOtp]=useState(["","","","","",""])
     const ref=useRef<(HTMLInputElement | null)[]>([]);
+    // const location=useLocation()
+    const [param]=useSearchParams()
+    const from=param.get('from')
 
 
 
@@ -18,13 +24,22 @@ export default function Otp() {
 
     // alert(JSON.stringify(user))
     const mobileno= user?Object.keys(user)[0]: " "
+    const navigate=useNavigate()
   
 
     function checkOtp()
     {
       if(gOtp==otp.join(""))
       {
-        alert('CORRECT')
+        // window.location.href='/homepage'
+        if(from=="MP")
+        {
+          navigate('/order_review')
+        }
+        else if(from=="HP")
+       {
+         navigate('/homepage')
+       }
       }
       else
       {
