@@ -103,7 +103,7 @@ export default function Otp() {
     <div className='flex justify-center py-20 mx-5 ' >
       <div className=" bg-white border border-gray-100 shadow-2xl rounded-2xl p-5 " >
         {/* <div className=" md:text-[35px] text-[25px] text-black cursor-pointer w-fit " >×</div> */}
-        <div className=" md:text-[20px] text-[15px] mt-5 text-black cursor-pointer w-fit " >HungerBuddy</div>
+        <div className=" md:text-[20px] text-[15px] mt-5 text-black cursor-pointer w-fit " >FoodieHub</div>
         <div className=" md:mt-7 mt-5 text-black md:text-[25px] text-[17px] font-bold " >Verify OTP</div>
         <div className=" text-gray-700 md:text-[16px] text-[13px] " >Enter the OTP send to {mobileno ? `+91-${mobileno}` : "loading..."}</div>
         <div className=" text-blue-700 md:text-[17px] text-[13px] font-bold cursor-pointer " >Update Number</div>

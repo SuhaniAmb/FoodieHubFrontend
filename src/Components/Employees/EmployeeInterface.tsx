@@ -222,7 +222,7 @@ export default function EmployeeInterface({refresh,setRefresh}:DisplayAllEmploye
       <div className="w-[80%] border border-[hsla(321,41%,24%,1)] rounded-[5px] flex flex-col ">
         <div className="w-full rounded-t-[5px] bg-[linear-gradient(90deg,hsla(321,41%,24%,1)_0%,hsla(330,53%,77%,1)_100%)]">
           <div className="flex font-quicksand flex-col px-1 w-[30%] py-2.5">
-            <div className="font-bold text-[24px] text-white">HungerBuddy</div>
+            <div className="font-bold text-[24px] text-white">FoodieHub</div>
             <div className="font-[700] text-[16px] text-white mt-2">New Food Employee</div>
           </div>
         </div>

@@ -23,7 +23,7 @@ export default function AdminDashboard() {
   return (
     <div className=" w-screen h-screen " >
         <div className=" w-full h-[8%] rounded-t-[10px] flex flex-row space-x-[84%] bg-[#852f68] " >
-            <div className="h-full text-[25px] text-white flex flex-row items-center pl-5 " >HungerBuddy</div>
+            <div className="h-full text-[25px] text-white flex flex-row items-center pl-5 " >FoodieHub</div>
             <div className="h-[80%] w-[3%] mt-1.5 bg-gray-500 rounded-[50%] flex items-center" >
                <div className=" h-full w-full text-[25px] text-white flex items-center justify-center" >R</div>
             </div>

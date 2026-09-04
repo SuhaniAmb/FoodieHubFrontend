@@ -41,7 +41,7 @@ if (users) {
         <div className=" w-full h-[auto] flex mt-5 " >
             <div className="grid grid-cols-2 w-full mr-2" >
                 <div className=" flex flex-col " >
-                    <div className=" ml-5 text-black sm:text-[18px] text-[15px] font-normal " >HungerBuddy in</div>
+                    <div className=" ml-5 text-black sm:text-[18px] text-[15px] font-normal " >FoodieHub in</div>
                     <div className=" ml-5 text-black sm:text-[27px] text-[20px] font-bold whitespace-nowrap " >20 minutes</div>
                     <div className="flex" > 
                         <span className=" ml-5 text-black sm:text-[17px] text-[15px] font-bold " >Home</span>

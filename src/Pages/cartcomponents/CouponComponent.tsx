@@ -96,7 +96,7 @@ const totalAmount = data.reduce((sum, item) => {
       key: "rzp_test_GQ6XaPC6gMPNwH",
       amount: totalAmount*100, 
       currency: "INR" as const,
-      name: "Hunger Buddy",
+      name: "FoodieHub",
       description: "Test Transaction",
       order_id: "", // Generate order_id on server
       handler: async (response:RazorpayResponse) => {

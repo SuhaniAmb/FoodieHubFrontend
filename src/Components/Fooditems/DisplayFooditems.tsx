@@ -155,7 +155,7 @@ const showEditFooditem=()=>{
       <div className="w-[80%] border border-[hsla(321,41%,24%,1)] rounded-[5px] flex flex-col ">
         <div className=" px-1 pb-2 w-full rounded-t-[5px] bg-[linear-gradient(90deg,hsla(321,41%,24%,1)_0%,hsla(330,53%,77%,1)_100%)] ">
           <div className=" flex flex-row w-full pt-2.5">
-            <div className="font-bold text-[24px] text-white">HungerBuddy</div>
+            <div className="font-bold text-[24px] text-white">FoodieHub</div>
             <X className="text-white ml-auto cursor-pointer " onClick={handleCloseDialog} />
           </div>
 

@@ -120,7 +120,7 @@ const amt=(item.offerprice>0?item.offerprice:item.fullprice)*item.qty
          <div className=" flex items-center mt-1 " >
             <div className=" text-gray-600 text-[12px] " >Sold by</div>
             <div  className=" text-gray-800 font-bold text-[11px] "  >:</div>
-            <div className=" text-black ml-1 text-[13px] " >HungerBuddy Foods</div>
+            <div className=" text-black ml-1 text-[13px] " >FoodieHub Foods</div>
           </div>
           <div className=" flex items-start mt-1 " >
             <div className=" text-gray-600 text-[12px] flex items-start " >Qty</div>

@@ -22,7 +22,15 @@ type CategoryProps = {
 export default function FoodItemCard({data}:CategoryProps)
 {
 
-    const bgColors = ["bg-[#ffeaa7]","bg-[#fab1a0]","bg-[#dff9fb]","bg-[#686de0]","bg-[#22a6b3]","bg-[#78e08f]","bg-[#fa983a]","bg-[#6a89cc]","bg-[#f8c291]"]
+    const bgColors = ["#ffeaa7",
+ "#fab1a0",
+ "#dff9fb",
+ "#686de0",
+ "#22a6b3",
+ "#78e08f",
+ "#fa983a",
+ "#6a89cc",
+ "#f8c291"]
     const randomBgColors = useMemo(() => {
   return data.map(
     () => bgColors[Math.floor(Math.random() * bgColors.length)]
@@ -40,7 +48,9 @@ export default function FoodItemCard({data}:CategoryProps)
 
             <div key={index} onClick={()=>navigate(`/productdetailcomponent/${item.fooditemid}`)} className=" w-full md:ml-10 sm:ml-0 flex justify-center transform transition-transform duration-300 ease-in-out hover:scale-90 cursor-pointer  " >
                 <div className=" w-full  mt-10 " >
-                    <div className={`relative flex justify-center items-center w-full h-[250px] rounded-3xl ${randomBgColors[index]} `} >
+                    <div className={`relative flex justify-center items-center w-full h-[250px] rounded-3xl `}style={{
+   backgroundColor: randomBgColors[index]
+ }} >
                         <img src={`${serverURL}/images/${item.picture}`}  width={200}/> 
                         <div className=" absolute bg-gradient-to-t from-black to-transparent w-full h-24 bottom-0 rounded-b-3xl " >
                             <div className=" text-white text-2xl font-bold ml-5 mt-14 " >{item.offerprice==0?<></>:<>{Math.round(((item.fullprice - item.offerprice) / item.fullprice) * 100)}% OFF UPTO ₹{(item.fullprice)-(item.offerprice)} </> }</div>

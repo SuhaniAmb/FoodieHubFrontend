@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <div className=' flex w-full bg-[#EFEFF4] mb-10' >
       <div className='hidden lg:block lg:pt-32 pt-20  pb-16 lg:px-32 px-10  ' >
-        <div className=' text-orange-500 md:text-4xl text-2xl font-bold flex justify-center' >HungerBuddy</div>
+        <div className=' text-orange-500 md:text-4xl text-2xl font-bold flex justify-center' >FoodieHub</div>
         <div className='w-full flex justify-center' >
         <img src={burger} width={100} className=' w-fit mt-16 object-fill align-bottom' />
         </div>

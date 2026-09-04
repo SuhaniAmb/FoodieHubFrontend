@@ -35,7 +35,7 @@ export default function SignIn() {
     <div className='flex justify-center py-20 mx-5' >
       <div className=" bg-white border border-gray-100 shadow-2xl rounded-2xl p-5 " >
         {/* <div className=" md:text-[35px] text-[25px] text-black cursor-pointer w-fit " >×</div> */}
-        <div className=" md:text-[20px] text-[15px] mt-5 text-black cursor-pointer w-fit " >HungerBuddy</div>
+        <div className=" md:text-[20px] text-[15px] mt-5 text-black cursor-pointer w-fit " >FoodieHub</div>
         <div className=" md:mt-7 mt-5 text-black md:text-[23px] text-[17px] font-bold " >Almost their</div>
         <div className=" text-gray-700 md:text-[18px] text-[15px] " >Simple sign in to place your order</div>
         <div className=" md:mt-12 mt-10 text-gray-800 md:text-[19px] text-[14px] " >Mobile Number</div>
