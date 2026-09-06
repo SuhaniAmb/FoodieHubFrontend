@@ -1,4 +1,3 @@
-import React from "react";
 import dashboard from "../../assets/dashboard.png";
 import branch from "../../assets/branch.png";
 import batch from "../../assets/batch.png";

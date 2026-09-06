@@ -1,4 +1,3 @@
-import React from "react";
 import dashboard from "../../assets/dashboard.png";
 import logout from "../../assets/check-out.png";
 import foodcategory from "../../assets/cutlery.png"

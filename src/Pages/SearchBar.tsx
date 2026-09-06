@@ -53,14 +53,6 @@ const fetchAllFood=async()=>{
     fetchAllFood()
  },[])
 
- const handleSearch=()=>{
-  const selectedFood=foodList.find((item)=>
-    item.fooditemname.toLowerCase()===searchText.toLowerCase()
-  )
-  if(selectedFood){
-    navigate(`/productdetailcomponent/${selectedFood.fooditemid}`)
-  }
- }
 
    // select dropdown item
   const handleSelect=(name:string)=>{

@@ -17,7 +17,7 @@ export default function Dashboard()
   const [snacksList, setSnacksList]=useState([])
   const [drinksList, setDrinksList]=useState([])
   const [southindianList, setSouthindianList]=useState([])
-  const [foodList, setFoodList]=useState([])
+  const [foodList, setFoodList]=useState<{fooditemid:number, picture:string, fooditemname:string, fullprice:number, halfprice:number, offerprice:number, rating:string, fooditemtype:string}[]>([])
 
   const aboutRef=useRef(null)
   
@@ -74,7 +74,7 @@ export default function Dashboard()
         <SearchBar/>
       </div>
       <div>
-        <CategoryComponent data={categoryList} dataRef={aboutRef} />
+        <CategoryComponent data={categoryList} dataRef={aboutRef} foodList={foodList} setFoodList={setFoodList} />
       </div>
       <div>
         <SnacksComponent data={snacksList} />

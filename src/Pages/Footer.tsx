@@ -1,4 +1,3 @@
-import React from 'react'
 import instagram from '../assets/instagram.png'
 import pinterest from '../assets/pinterest-logo.png'
 import facebook from '../assets/facebook.png'

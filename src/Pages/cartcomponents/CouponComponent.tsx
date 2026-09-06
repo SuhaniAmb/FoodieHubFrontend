@@ -102,7 +102,7 @@ const totalAmount = data.reduce((sum, item) => {
       handler: async (response:RazorpayResponse) => {
         console.log(response);
         if (userData === "Not Login") return;
-        const res= await postData("users/submit_order", { paymentid:response.razorpay_payment_id, orderdate:new Date(), delivery_status:"Not Deliver", payment_type:"None"}).then(async(res)=>{
+          await postData("users/submit_order", { paymentid:response.razorpay_payment_id, orderdate:new Date(), delivery_status:"Not Deliver", payment_type:"None"}).then(async(res)=>{
           await postData("users/submit_order_detail", { orderid:res.orderid, enrollmentno:userData.enrollmentno, emailid:userData.emailid, mobileno:userData.mobileno, data:data})
         })
         // alert("Payment Successful!");

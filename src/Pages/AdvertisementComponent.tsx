@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import starbucks from '../assets/starbucks.png'
 
 export default function AdvertisementComponent() {
