@@ -87,6 +87,7 @@ function App() {
 
          {/****************************** USER INTERFACES ****************************************************/}
 
+      <Route path='/' element={<Homepage />} />
       <Route path='homepage' element={<Homepage />} />
       <Route path='productdetailcomponent/:id' element={<ProductDetailComponent />} />
       <Route path='cart' element={<Carts />} />
