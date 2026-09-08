@@ -1,7 +1,7 @@
 import axios ,{AxiosError } from "axios";
 import Swal from "sweetalert2";
 
-const serverURL='http://localhost:5000'
+const serverURL='https://foodiehubbackend-kilm.onrender.com'
 
 
 
