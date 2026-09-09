@@ -146,7 +146,7 @@ const btnMessage = user == null ? "Sign In" : "Make Payment"
 
 
   return (
-    <div className='  flex-col justify-center xl:px-36 lg:px-20 md:px-8 sm:px-4 px-4 mt-7 ' >
+    <div className='  flex-col justify-center xl:px-36 lg:px-20 md:px-8 sm:px-4 px-4 mt-7 pb-5' >
       <div className=' w-full md:p-4 p-3 flex border border-gray-300 rounded-2xl cursor-pointer ' >
         <div><img src={apply} width={25} /></div>
         <div className=' text-black md:text-[17px] text-[15px] font-bold ml-5' >Apply Coupon</div>        

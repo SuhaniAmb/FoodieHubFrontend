@@ -71,7 +71,7 @@ console.log(userS)
   return (
     <div> 
       {products.length==0?<><div>Cart is Empty</div></>:<>
-    <div className="w-full xl:mt-12 lg:mt-8 md:mt-5 mt-2 lg:pl-5 overflow-x-hidden">
+    <div className="w-full xl:mt-12 lg:mt-8 md:mt-5 mt-2 lg:pl-5 overflow-x-hidden ">
       <div className="sm:grid grid-cols-2 gap-1 ">
         <div className="xl:pl-14 lg:pl-10 md:pl-3 pl-1 ">
           <div className=" text-black text-2xl font-bold">Order Review</div>
