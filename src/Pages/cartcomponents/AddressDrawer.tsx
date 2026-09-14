@@ -47,18 +47,26 @@ export default function AddressDrawer({ open, onClose, onSave, addresses, select
       />
 
       {/* drawer */}
-      <div ref={drawerRef} className="fixed right-0 top-0 h-full lg:w-80 md:w-72 w-40 bg-white md:p-4 py-2 px-1 overflow-y-auto scrollbar-hide">
-        <div className="flex" >
-            <div className=" whitespace-nowrap text-[black] lg:text-[20px] md:text-[17px] text-[14px] font-bold " >Select Address</div>
-            <div className=" cursor-pointer w-fit ml-auto md:mb-10 mb-5 border-gray-100 hover:border rounded-full p-1 " onClick={onClose}>❌</div>
-        </div>
-        <div className=' text-gray-500 lg:text-[18px] md:text-[15px] text-[12px] font-semibold ' >Saved Address</div>
+      <div ref={drawerRef}className="fixed right-0 top-0 h-full w-[90%] sm:w-80 md:w-72 bg-white p-3 sm:p-4 overflow-y-auto scrollbar-hide">
+        <div className="flex items-center mb-5">
+  <div className="text-black text-[16px] sm:text-[18px] font-bold">
+    Select Address
+  </div>
+
+  <div
+    className="cursor-pointer ml-auto rounded-full p-1 hover:bg-gray-100"
+    onClick={onClose}
+  >
+    ❌
+  </div>
+</div>
+        <div className="text-gray-500 text-sm sm:text-[15px] font-semibold">Saved Address</div>
        {showForm && (
-  <div className="mt-5 w-full bg-white border border-gray-200 rounded-lg shadow-sm p-3 md:p-4">
+  <div className="mt-5 w-full bg-white border border-gray-200 rounded-lg shadow-sm p-3 sm:p-4">
 
     {/* FORM TITLE */}
     <div className="flex gap-5" >
-    <div><img src={left} className=" w-6 h-6 bg-gray-200 p-1 rounded-full cursor-pointer " onClick={() => setShowForm(false)} /></div>
+    <div><img src={left} className="w-6 h-6 bg-gray-200 p-1 rounded-full cursor-pointer" onClick={() => setShowForm(false)} /></div>
     <div className="text-black font-bold text-[16px] mb-4">
      {editMode ? "Edit Address" : "Add New Address"}
     </div>
@@ -184,7 +192,7 @@ export default function AddressDrawer({ open, onClose, onSave, addresses, select
     <div
       key={index}
       onClick={() => onSelect(index)}
-      className={`w-full mt-5 bg-white md:p-4 py-3 px-1 rounded-lg border shadow-sm cursor-pointer
+      className={`w-full mt-4 bg-white p-3 sm:p-4 rounded-lg border shadow-sm cursor-pointer
         ${
           selectedIndex === index
             ? "border-blue-400"
@@ -218,23 +226,23 @@ export default function AddressDrawer({ open, onClose, onSave, addresses, select
 
       <hr className="md:mt-4 mt-2 border-gray-300" />
 
-      <div className="mt-4 text-gray-700 text-[12px] md:text-[15px]">
+      <div className="mt-3 text-gray-700 text-sm break-words">
         {item.current_address}
       </div>
 
-      <div className="text-gray-700 text-[12px] md:text-[15px]">
+      <div className="text-gray-700 text-sm break-words">
         {item.current_city}
       </div>
 
-      <div className="text-gray-700 text-[12px] md:text-[15px]">
+      <div className="text-gray-700 text-sm break-words">
         {item.current_state}
       </div>
 
-      <div className="text-gray-700 text-[12px] md:text-[15px]">
+      <div className="text-gray-700 text-sm break-words">
         {item.current_pincode}
       </div>
 
-      <div className="text-gray-700 text-[12px] md:text-[15px]">
+      <div className="text-gray-700 text-sm break-words">
         {item.mobileno}
       </div>
 
@@ -244,8 +252,7 @@ export default function AddressDrawer({ open, onClose, onSave, addresses, select
 </div>
          {/*                       SELECT ADDRESS END                               */}
 
-         <div onClick={()=> {setFormData({studentname:"",current_address:"",current_city:"",current_state:"",current_pincode:"",mobileno:""}), setEditMode(false), setShowForm(true), setEditIndex(null); setTimeout(() => {drawerRef.current?.scrollTo({top: 0,behavior: "smooth"})}, 0)}} className=" flex justify-center items-center mt-5 w-full bg-white border shadow-md border-gray-100 hover:border-blue-400 rounded-lg cursor-pointer
-          " >
+         <div onClick={()=> {setFormData({studentname:"",current_address:"",current_city:"",current_state:"",current_pincode:"",mobileno:""}), setEditMode(false), setShowForm(true), setEditIndex(null); setTimeout(() => {drawerRef.current?.scrollTo({top: 0,behavior: "smooth"})}, 0)}} className=" flex justify-center items-center mt-5 w-full bg-white border shadow-md border-gray-100 hover:border-blue-400 rounded-lg cursor-pointer" >
             <div className=" text-blue-400 md:mr-5 mr-3 md:text-[30px] text-[20px] " >+</div>
             <div className=" text-blue-400 md:text-[18px] text-[12px] whitespace-nowrap " >Add New Address</div>
          </div>
