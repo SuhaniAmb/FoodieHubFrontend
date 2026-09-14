@@ -3,6 +3,7 @@ import { postData } from "../../Components/Services/Fetchnodeservices"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useSearchParams } from "react-router-dom"
+import { Monitor } from "lucide-react"
 
 
 export default function SignIn() {
@@ -16,12 +17,34 @@ export default function SignIn() {
   // alert(param.get('from'))
   const from=param.get('from')
 
+  // const handleClick=async()=>{
+  //   const response=await postData("users/student_sign_in",{mobileno})
+  //   if(response.status)
+  //   {
+  //     const mn=response?.data?.mobileno
+  //     dispatch({type:'ADD_USER', payload:[String(mn),response?.data]})
+  //     setMessage('')
+  //     navigate(`/otp_page?from=${from}`)
+  //   }
+  //   else
+  //   {
+  //     setMessage(response.message)
+  //   }
+  //   }
+
   const handleClick=async()=>{
+
+    if(mobileno.length!==10)
+    {
+      setMessage("Please enter a valid 10 digit mobile number")
+      return
+    }
     const response=await postData("users/student_sign_in",{mobileno})
     if(response.status)
     {
-      const mn=response?.data?.mobileno
-      dispatch({type:'ADD_USER', payload:[String(mn),response?.data]})
+      dispatch({
+        type:'ADD_USER',payload:[String(mobileno),{mobileno:mobileno}]
+      })
       setMessage('')
       navigate(`/otp_page?from=${from}`)
     }
@@ -29,7 +52,7 @@ export default function SignIn() {
     {
       setMessage(response.message)
     }
-    }
+  }
 
   return (
     <div className='flex justify-center py-20 mx-5' >
