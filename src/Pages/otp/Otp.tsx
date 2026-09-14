@@ -111,7 +111,7 @@ export default function Otp() {
         <div className=" flex gap-2 md:mt-10 mt-5" >
             {otp.map((_,index)=>(
                 <div key={index} className="flex items-center " >
-                <input ref={(el) => {ref.current[index] = el}} onChange={(e)=>handleChange(e, index)} onKeyDown={(e)=>handleKeyDown(e,index)} value={otp[index]} type="text" pattern="[0-9]*" maxLength={1} className=" md:w-12 w-6 md:h-12 h-6 border focus:border-2 focus:border-blue-600 rounded-md p-3 border-gray-400 text-black flex justify-center items-center outline-none font-bold text-[19px] " />
+                <input ref={(el) => {ref.current[index] = el}} onChange={(e)=>handleChange(e, index)} onKeyDown={(e)=>handleKeyDown(e,index)} value={otp[index]} type="text" pattern="[0-9]*" maxLength={1} className="md:w-12 w-9 md:h-12 h-9 border focus:border-2 focus:border-blue-600 rounded-md p-0 border-gray-400 text-black text-center outline-none font-bold text-[19px]" />
             {index < 5 &&(
             <div className=" flex justify-center items-center text-gray-700 text-[30px] md:ml-2 ml-1 " >-</div>
             )}

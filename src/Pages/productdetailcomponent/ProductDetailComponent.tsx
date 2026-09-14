@@ -77,11 +77,13 @@ type CategoryList = {
         // console.log(response.data)
         // alert(JSON.stringify(response.data))
 
-        response.data[0].qty=0
-        setFoodItem(response.data[0])
-       if (response.data.length > 0) {
-  fetchAllFoodByCategory(response.data[0].categoryid)
- }}
+        if (response.data && response.data.length > 0) {
+    response.data[0].qty = 0
+
+    setFoodItem(response.data[0])
+
+    fetchAllFoodByCategory(response.data[0].categoryid)
+  }}
     }
 
     

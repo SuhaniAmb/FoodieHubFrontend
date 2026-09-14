@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import pencil from "../../assets/pencil.png"
 import AddressDrawer from "./AddressDrawer"
 
@@ -14,20 +14,33 @@ interface Address {
   [key: string]: unknown
 }
 
-interface AddressProps {
-  address:Address
-}
-
-export default function AddressComponent({address}:AddressProps) {
+export default function AddressComponent() {
 
   const [open, setOpen]=useState(false)
-  const [addresses,setAddresses]=useState<Address[]>([])
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  
+  const [addresses, setAddresses] = useState<Address[]>(() => {
+  const saved = localStorage.getItem("foodiehub_addresses")
+  return saved ? JSON.parse(saved) : []
+})
+
+const [selectedIndex, setSelectedIndex] = useState(() => {
+  const saved = localStorage.getItem("foodiehub_selected_address")
+  return saved ? Number(saved) : 0
+})
+
+useEffect(() => {
+  localStorage.setItem("foodiehub_addresses", JSON.stringify(addresses))
+}, [addresses])
+
+useEffect(() => {
+  localStorage.setItem("foodiehub_selected_address", String(selectedIndex))
+}, [selectedIndex])
+
 
   return (
     <div className=" w-full bg-white mt-12 items-center justify-center ">
         <div className=' whitespace-nowrap text-[black] md:text-[18px] text-[15px] font-bold ' >Delivery Address</div>
-        {addresses.length > 0 && (
+        {addresses.length > 0 && addresses[selectedIndex] && (
   <div className="w-full mt-5 bg-white md:p-4 p-3 rounded-lg border border-gray-200 shadow-sm">
     <div className="flex justify-between">
       <div className="text-black md:text-[18px] text-[17px]">
@@ -78,18 +91,21 @@ export default function AddressComponent({address}:AddressProps) {
   setAddresses(prev => {
     const newAddresses = prev.filter((_, i) => i !== index);
 
-    // Agar deleted address selected tha
     if (newAddresses.length === 0) {
       setSelectedIndex(0);
     } else if (index < selectedIndex) {
-      setSelectedIndex(prevIndex => prevIndex - 1);
-    } else if (index === selectedIndex && selectedIndex >= newAddresses.length) {
-      setSelectedIndex(newAddresses.length - 1);
+      setSelectedIndex(selectedIndex - 1);
+    } else if (index === selectedIndex) {
+      setSelectedIndex(
+        Math.min(selectedIndex, newAddresses.length - 1)
+      );
     }
 
     return newAddresses;
   });
 }}
+
+
   onSave={(newAddress, editMode, editIndex) => {
 
     if (editMode && editIndex !== undefined) {

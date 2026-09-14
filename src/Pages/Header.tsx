@@ -25,13 +25,13 @@ export default function Header()
 //    const user=useSelector((state:RootState)=>state.user)
   const users = localStorage.getItem("USER")
 
-let userData: Student | "Not Login" = "Not Login"
+let userData: Student | null = null
 
 if (users) {
   const parsedUser = JSON.parse(users)
   const firstUser = Object.values(parsedUser)[0] as Student
 
-  if (firstUser?.studentname) {
+  if (firstUser?.mobileno) {
     userData = firstUser
   }
 }
@@ -62,14 +62,20 @@ if (users) {
                         <img src={wallet} width={25} height={25} />
                         <div className="absolute sm:top-9 top-7 sm:h-4 h-3 sm:w-12 w-9 text-white sm:text-[11px] text-[9px] flex justify-center items-center bg-[#2d3436] rounded-lg font-bold " >&#8377;20</div>
                     </div>
-                    {userData=="Not Login"?<>
+                    {userData===null?<>
                     <div onClick={()=>navigate('/sign_in?from=HP')} className="cursor-pointer flex bg-[rgba(0,0,0,0.4)] rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 justify-center " >
                         <img src={userImg} width={30} height={20} />
                     </div>
                     </>:<>
-                    <div className="cursor-pointer flex justify-center items-center bg-orange-500 rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2 text-[25px] text-white " >{userData?.studentname.charAt(0).toUpperCase()}</div>
+                    <div className="cursor-pointer flex justify-center items-center bg-orange-500 rounded-full sm:w-[45px] sm:h-[45px] w-[35px] h-[35px] p-2">
+  <img
+    src={userImg}
+    className="sm:w-[28px] sm:h-[28px] w-[22px] h-[22px]"
+  />
+</div>
                     </>}
                 </div>
+
             </div>
         </div>
     )

@@ -3,7 +3,6 @@ import { postData } from "../../Components/Services/Fetchnodeservices"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useSearchParams } from "react-router-dom"
-import { Monitor } from "lucide-react"
 
 
 export default function SignIn() {
@@ -42,15 +41,11 @@ export default function SignIn() {
     const response=await postData("users/student_sign_in",{mobileno})
     if(response.status)
     {
-      dispatch({
-        type:'ADD_USER',payload:[String(mobileno),{mobileno:mobileno}]
-      })
+      const user = {mobileno: mobileno}
+      dispatch({type:'ADD_USER',payload:[String(mobileno), user]})
+      localStorage.setItem("USER",JSON.stringify({[String(mobileno)]: user}))
       setMessage('')
       navigate(`/otp_page?from=${from}`)
-    }
-    else
-    {
-      setMessage(response.message)
     }
   }
 
