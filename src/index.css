@@ -96,3 +96,7 @@ button:focus-visible {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.swal2-confirm {
+  background-color: #7066e0 !important;
+  color: white !important;
+}
