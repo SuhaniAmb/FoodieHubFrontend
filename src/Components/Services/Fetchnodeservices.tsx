@@ -55,8 +55,8 @@ async function postData(url:string,body:unknown)
         }
         else
         {
-            //Swal.fire({ position: "center", icon: "error", title:"Site is not working proerly....ls wait for sometime", timer: 2000, toast: true });
-            Swal.fire("Site is not working proerly....ls wait for sometime")
+            //Swal.fire({ position: "center", icon: "error", title:"Site is not working proerly....pls wait for sometime", timer: 2000, toast: true });
+            Swal.fire("Site is not working proerly....pls wait for sometime")
         }
         return([])
     }
